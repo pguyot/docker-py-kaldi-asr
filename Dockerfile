@@ -26,6 +26,17 @@ RUN pip install wheel && \
         setproctitle==1.1.10 \
         typing==3.6.4
 
-RUN pip install py-kaldi-asr==0.5.2
+RUN pip install git+https://github.com/pguyot/py-kaldi-asr.git
+
+RUN apt-get install --no-install-recommends -y \
+            swig \
+            pulseaudio \
+            libpulse-dev \
+            libasound2-dev && \
+    apt-get clean && \
+    apt-get autoclean && \
+    apt-get autoremove -y
+
+RUN pip install git+https://github.com/pguyot/py-nltools.git
 
 COPY asr_server.py /opt/asr_server/
