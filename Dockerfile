@@ -32,7 +32,8 @@ RUN apt-get install --no-install-recommends -y \
             swig \
             pulseaudio \
             libpulse-dev \
-            libasound2-dev && \
+            libasound2-dev \
+            sphinxbase-utils && \
     apt-get clean && \
     apt-get autoclean && \
     apt-get autoremove -y
